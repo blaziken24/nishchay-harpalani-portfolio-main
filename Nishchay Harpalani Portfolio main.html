@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishchay Harpalani - Graphic Designer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #000;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 5px solid #000;
+        }
+
+        header h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        header .title {
+            font-size: 1.8em;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        header .tagline {
+            font-size: 1.2em;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            background: #000;
+            padding: 25px 40px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid #FFD700;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #FFD700;
+            font-weight: 800;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-size: 0.95em;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: #FFA500;
+            text-shadow: 0 0 10px #FFD700;
+            transform: scale(1.1);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Section Title */
+        .section-title {
+            background: #FFD700;
+            color: #000;
+            padding: 30px;
+            margin-top: 60px;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 3px solid #000;
+            border-radius: 0;
+            text-align: center;
+            box-shadow: 8px 8px 0 rgba(255, 215, 0, 0.3);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .portfolio-item {
+            background: #1a1a1a;
+            border: 3px solid #FFD700;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            box-shadow: 0 0 0 #FFD700;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            border-color: #FFA500;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: all 0.4s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .portfolio-info {
+            padding: 20px;
+            background: #000;
+            border-top: 3px solid #FFD700;
+        }
+
+        .portfolio-info h3 {
+            color: #FFD700;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .portfolio-info p {
+            color: #ccc;
+            font-size: 0.9em;
+            margin-bottom: 12px;
+        }
+
+        /* Tags */
+        .portfolio-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #FFD700;
+            color: #000;
+            padding: 5px 12px;
+            font-size: 0.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            border: 2px solid #000;
+            border-radius: 3px;
+        }
+
+        /* About Section */
+        .about {
+            background: #1a1a1a;
+            padding: 60px 40px;
+            margin-top: 40px;
+            border: 3px solid #FFD700;
+            border-radius: 0;
+        }
+
+        .about h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #FFD700;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .about p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #ddd;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            background: #000;
+            padding: 25px;
+            border: 3px solid #FFD700;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            background: #FFD700;
+            color: #000;
+        }
+
+        .skill-card h3 {
+            color: #FFD700;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .skill-card:hover h3 {
+            color: #000;
+        }
+
+        .skill-card p {
+            color: #ccc;
+            font-size: 0.95em;
+        }
+
+        .skill-card:hover p {
+            color: #000;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000;
+            padding: 60px 40px;
+            margin-top: 60px;
+            margin-bottom: 40px;
+            text-align: center;
+            border: 5px solid #000;
+        }
+
+        .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .contact p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            background: #000;
+            color: #FFD700;
+            padding: 15px 35px;
+            border-radius: 0;
+            text-decoration: none;
+            font-weight: 900;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            border: 3px solid #FFD700;
+            font-size: 0.95em;
+            letter-spacing: 1px;
+        }
+
+        .contact-links a:hover {
+            background: #FFD700;
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #FFD700;
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9em;
+            border-top: 3px solid #FFD700;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+            header .title {
+                font-size: 1.3em;
+            }
+            nav {
+                gap: 20px;
+                padding: 15px 20px;
+            }
+            nav a {
+                font-size: 0.8em;
+            }
+            .section-title {
+                font-size: 1.8em;
+                padding: 20px;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        @media print {
+            body { background: white; }
+            nav { display: none; }
+            section { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <h1>NISHCHAY HARPALANI</h1>
+        <div class="title">Graphic Designer &amp; Creative Professional</div>
+        <div class="tagline">Bold Designs. Creative Solutions. Professional Excellence.</div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#branding">🎨 Branding</a>
+        <a href="#packaging">📦 Packaging</a>
+        <a href="#editorial">📄 Editorial</a>
+        <a href="#photo-editing">✏️ Photo Editing</a>
+        <a href="#poster-design">🎬 Posters</a>
+        <a href="#ui-design">💻 UI/UX</a>
+        <a href="#contact">📞 Contact</a>
+    </nav>
+
+    <div class="container">
+        <!-- About Section -->
+        <section class="about">
+            <h2>About Me</h2>
+            <p>Nishchay Harpalani is a graphic designer based in India, crafting clean, modern visuals for brands and digital creators. With experience across multiple client projects, he focuses on social media creatives, branding assets, and UI-inspired layouts that are both visually appealing and intuitive to use. As a freelancer, Nishchay enjoys collaborating closely with clients, turning rough ideas into polished designs that help them stand out online and communicate clearly with their audience.</p>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>🎨 Visual Design</h3>
+                    <p>Creative graphics and layouts</p>
+                </div>
+                <div class="skill-card">
+                    <h3>💼 Branding</h3>
+                    <p>Logo &amp; brand identity</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📱 UI/UX Design</h3>
+                    <p>Digital product design</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📦 Packaging</h3>
+                    <p>Product design solutions</p>
+                </div>
+                <div class="skill-card">
+                    <h3>✏️ Photo Editing</h3>
+                    <p>Professional retouching</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📸 Social Media</h3>
+                    <p>Content &amp; graphics</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Branding Section -->
+        <section id="branding">
+            <h2 class="section-title">🎨 BRANDING &amp; IDENTITY</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/337f6e95-f2e1-4e07-b8fe-c854b85ece05" alt="Code3Auto Mascot Logo">
+                    <div class="portfolio-info">
+                        <h3>Code3Auto Mascot Logo</h3>
+                        <p>Custom character design and branding</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Logo Design</span>
+                            <span class="tag">Branding</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/b455ad33-a7a3-4fb8-80e7-e7b197f9d11f" alt="Code3Auto Brand Assets">
+                    <div class="portfolio-info">
+                        <h3>Code3Auto Brand Assets</h3>
+                        <p>Complete brand identity system</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Brand Assets</span>
+                            <span class="tag">Identity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/e471c7d9-5ae1-4675-a1de-8d913e3ac80f" alt="Business Card Design">
+                    <div class="portfolio-info">
+                        <h3>Business Card Design</h3>
+                        <p>Professional stationery design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Stationery</span>
+                            <span class="tag">Print</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packaging Section -->
+        <section id="packaging">
+            <h2 class="section-title">📦 PACKAGING DESIGN</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/bf281db6-eff5-42ff-ac9f-0358bd1a9961" alt="Coffee Packaging Design">
+                    <div class="portfolio-info">
+                        <h3>Premium Coffee Packaging</h3>
+                        <p>Luxury coffee brand packaging</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Packaging</span>
+                            <span class="tag">Label Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/2fd8bdcb-dc35-48cb-a9f8-b88e1d615dda" alt="Lemon Tea Packaging">
+                    <div class="portfolio-info">
+                        <h3>Lemon Tea Detox Packaging</h3>
+                        <p>Premium herbal tea packaging</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Packaging</span>
+                            <span class="tag">Beverage</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/8c473e51-f755-4152-8507-df3608446f58" alt="Cap Mockup">
+                    <div class="portfolio-info">
+                        <h3>Code3Auto Cap Mockup</h3>
+                        <p>Product merchandise design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Mockup</span>
+                            <span class="tag">Merchandise</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editorial Design -->
+        <section id="editorial">
+            <h2 class="section-title">📄 EDITORIAL DESIGN</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/c317af4a-1632-42a8-97b4-73ec9547cbbb" alt="Real Estate Brochure">
+                    <div class="portfolio-info">
+                        <h3>Real Estate Brochure</h3>
+                        <p>Professional property marketing brochure</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Brochure</span>
+                            <span class="tag">Layout</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/482a96ef-b988-494d-8d0d-967029a674b5" alt="Magazine Cover">
+                    <div class="portfolio-info">
+                        <h3>Thomas Shelby Magazine Cover</h3>
+                        <p>High-impact editorial design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Magazine</span>
+                            <span class="tag">Editorial</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/77b09b7e-8734-40ab-a62f-e2548da5032d" alt="Book Cover Design">
+                    <div class="portfolio-info">
+                        <h3>Where the Stars Begin - Book Cover</h3>
+                        <p>Literary book cover design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Book Design</span>
+                            <span class="tag">Typography</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Photo Editing Section -->
+        <section id="photo-editing">
+            <h2 class="section-title">✏️ PHOTO EDITING &amp; RETOUCHING</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/0ebea32f-9eed-43e4-b6af-bdb78b84baf8" alt="Colour Correction">
+                    <div class="portfolio-info">
+                        <h3>Professional Colour Correction</h3>
+                        <p>Advanced photo color grading</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Retouching</span>
+                            <span class="tag">Color Grade</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/1ea501e7-0415-479e-982a-f874092dd870" alt="Cleaning and Cloning">
+                    <div class="portfolio-info">
+                        <h3>Image Cleaning &amp; Cloning</h3>
+                        <p>Professional photo retouching</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Retouching</span>
+                            <span class="tag">Cloning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/ea535d2e-f9d3-41ad-822b-5aa0b9f74eff" alt="Image Retouching">
+                    <div class="portfolio-info">
+                        <h3>Premium Image Retouching</h3>
+                        <p>Professional photo enhancement</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Retouching</span>
+                            <span class="tag">Enhancement</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/056d7993-77dc-4b0e-b2e8-f6da3b00a1b6" alt="Flower Coloring">
+                    <div class="portfolio-info">
+                        <h3>Selective Color Grading</h3>
+                        <p>Creative coloring effects</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Color Grading</span>
+                            <span class="tag">Creative</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/0ab7dce5-7092-46a9-ab3c-078675ca4a31" alt="Image Manipulation">
+                    <div class="portfolio-info">
+                        <h3>Creative Image Manipulation</h3>
+                        <p>Advanced photo compositing</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Manipulation</span>
+                            <span class="tag">Compositing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/8cb739ed-fc89-40f4-884d-d72803c268c0" alt="Shadowing Effect">
+                    <div class="portfolio-info">
+                        <h3>Shadowing &amp; Depth Effects</h3>
+                        <p>Professional shadow work</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Shadowing</span>
+                            <span class="tag">Effects</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Poster Design Section -->
+        <section id="poster-design">
+            <h2 class="section-title">🎬 POSTER &amp; PROMOTIONAL DESIGN</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/2fb868c6-3380-4bba-ad0c-6525a892c0d7" alt="Jordan Shoe Flyer">
+                    <div class="portfolio-info">
+                        <h3>Jordan Limited Edition Poster</h3>
+                        <p>Sports product poster design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Poster</span>
+                            <span class="tag">Sports</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/28cffe41-6a94-41bf-9f25-7bc9fedc1a28" alt="Joker Movie Poster">
+                    <div class="portfolio-info">
+                        <h3>Joker Movie Poster</h3>
+                        <p>Movie promotional design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Movie Poster</span>
+                            <span class="tag">Promotional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/c46775a4-a5c6-4f3c-9700-769f26050dce" alt="Maharana Pratap Poster">
+                    <div class="portfolio-info">
+                        <h3>Maharana Pratap Poster</h3>
+                        <p>Historical character design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Poster</span>
+                            <span class="tag">Heritage</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/c9bff24f-4d9a-4117-a97e-a5fe55a92160" alt="Console Launch Standee">
+                    <div class="portfolio-info">
+                        <h3>Console Launch Standee</h3>
+                        <p>Large format display design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Standee</span>
+                            <span class="tag">Display</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/09a99e1a-d9c1-4ca7-95b3-9f39c3eba0a0" alt="BMW Outdoor Hoarding">
+                    <div class="portfolio-info">
+                        <h3>BMW Outdoor Hoarding</h3>
+                        <p>Large-scale outdoor advertising</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Hoarding</span>
+                            <span class="tag">Automotive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/c479645e-4c6a-4822-9005-fd310d426292" alt="Furniture Expo Standee">
+                    <div class="portfolio-info">
+                        <h3>Furniture Expo Standee</h3>
+                        <p>Exhibition display design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Standee</span>
+                            <span class="tag">Exhibition</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UI/UX &amp; Digital Section -->
+        <section id="ui-design">
+            <h2 class="section-title">💻 UI/UX &amp; DIGITAL DESIGN</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/2d2a14cf-a881-40e3-8a21-3386645be407" alt="Healthcare UI">
+                    <div class="portfolio-info">
+                        <h3>Healthcare App UI</h3>
+                        <p>User-friendly medical application interface</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">UI Design</span>
+                            <span class="tag">App</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/f0470a7c-cdcc-4296-8ec8-551edacee5a5" alt="2D Animation Art">
+                    <div class="portfolio-info">
+                        <h3>2D Character Animation</h3>
+                        <p>Creative character design &amp; animation</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Animation</span>
+                            <span class="tag">Character</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/1cfe90d8-dc88-429d-b499-16b31d85c718" alt="3D Art">
+                    <div class="portfolio-info">
+                        <h3>3D Product Visualization</h3>
+                        <p>Professional 3D render &amp; visualization</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">3D Design</span>
+                            <span class="tag">Visualization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/f2d5af5e-1ddf-400d-a27e-0b01b5d78dcc" alt="Cyberpunk Character">
+                    <div class="portfolio-info">
+                        <h3>Cyberpunk Character Design</h3>
+                        <p>Advanced digital character creation</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Character Design</span>
+                            <span class="tag">Digital Art</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/ac02b62b-de88-4069-9a1e-660ceb2f824e" alt="Google Logo Concept">
+                    <div class="portfolio-info">
+                        <h3>Logo Concept Design</h3>
+                        <p>Modern logo &amp; brand identity concepts</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Logo Design</span>
+                            <span class="tag">Concept</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/6c5c78b1-09ba-46c8-8ab1-616e184344e6" alt="Bottle PNG">
+                    <div class="portfolio-info">
+                        <h3>Product PNG Cutout</h3>
+                        <p>Professional product isolation &amp; editing</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Photo Editing</span>
+                            <span class="tag">Product</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stationery &amp; Merchandise Section -->
+        <section id="stationery">
+            <h2 class="section-title">📋 STATIONERY &amp; MERCHANDISE</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/275af8a7-aefb-4e4d-9436-1fe7a20d5253" alt="Business Card">
+                    <div class="portfolio-info">
+                        <h3>Professional Business Card</h3>
+                        <p>Premium stationery design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Stationery</span>
+                            <span class="tag">Print</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/f3cf8654-ad96-43bd-948c-301354a18689" alt="Letterhead">
+                    <div class="portfolio-info">
+                        <h3>Corporate Letterhead</h3>
+                        <p>Professional letterhead design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Letterhead</span>
+                            <span class="tag">Corporate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/4fdc609b-0dd0-4bee-9168-97bff98cf007" alt="Envelope Design">
+                    <div class="portfolio-info">
+                        <h3>Custom Envelope Design</h3>
+                        <p>Branded envelope design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Envelope</span>
+                            <span class="tag">Stationery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/ead8b9ec-b3f8-466e-9937-25913b4c1a17" alt="T-Shirt Mockup">
+                    <div class="portfolio-info">
+                        <h3>T-Shirt Mockup Design</h3>
+                        <p>Apparel merchandise design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Merchandise</span>
+                            <span class="tag">Apparel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/85cdc711-73b7-4a53-b71a-2a4f38c43ba8" alt="Mug Mockup">
+                    <div class="portfolio-info">
+                        <h3>Mug Mockup Design</h3>
+                        <p>Product merchandise design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Merchandise</span>
+                            <span class="tag">Mockup</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/c4356ae9-35c4-457f-a0e6-af5124a59a1e" alt="Watermark Design">
+                    <div class="portfolio-info">
+                        <h3>Professional Watermark</h3>
+                        <p>Brand protection &amp; watermark design</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Branding</span>
+                            <span class="tag">Watermark</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>LET'S CREATE TOGETHER</h2>
+        <p>Ready to elevate your brand with powerful design?</p>
+        <div class="contact-links">
+            <a href="mailto:nishchayharplani4@gmail.com">📧 Email</a>
+            <a href="https://www.instagram.com/nishchay__harpalani24/?__pwa=1" target="_blank">📸 Instagram</a>
+            <a href="https://www.linkedin.com/in/nishchay-harpalani-b51b4b37b/  " target="_blank">🔗 LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 NISHCHAY HARPALANI | GRAPHIC DESIGNER &amp; CREATIVE PROFESSIONAL | INDIA</p>
+    </footer>
+</body>
+</html>
